@@ -1,0 +1,40 @@
+#######################################
+# Syntax Coloring Map For JoyAxis
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+GFXDisplay		KEYWORD1
+GFXStaticIcon	KEYWORD1
+GFXStaticBitmap	KEYWORD1
+GFXStaticBox	KEYWORD1
+GFXStaticLabel	KEYWORD1
+GFXBoundLabel	KEYWORD1
+GFXBoundNumeric	KEYWORD1
+GFXBoundFloat	KEYWORD1
+GFXBoundChar	KEYWORD1
+GFXBoundHBar	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+refresh			KEYWORD2
+show			KEYWORD2
+hide			KEYWORD2
+setVisible		KEYWORD2
+setForeground	KEYWORD2
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+GFXControl_Align_Left	KEYWORD2
+GFXControl_Align_Center	KEYWORD2
+GFXControl_Align_Right	KEYWORD2
