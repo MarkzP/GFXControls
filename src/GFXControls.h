@@ -113,7 +113,6 @@ public:
 	{
 		_prefix = prefix;
 		_suffix = suffix;
-		_init = false;
 	}
 protected:	
 	void redraw();
@@ -121,7 +120,6 @@ protected:
 	
 	const char *_prefix;
 	const char *_suffix;
-	bool _init;
 	int16_t _x_offset;
 	int16_t _y_offset;
 };

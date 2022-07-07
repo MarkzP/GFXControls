@@ -156,31 +156,27 @@ void GFXLabel::print(const String& val, bool clear)
 	
 	_gfx->getTextBounds(s, 0, 0, &x, &y, &w, &h);
 
-	if (!_init)
+	if (_font != nullptr)
 	{
-		if (_font != nullptr)
+		switch (_align)
 		{
-			switch (_align)
-			{
-			case GFXControl_Align_Center:
-				_x_offset = 3;
-				break;
-			case GFXControl_Align_Right:
-				_x_offset = 6;
-				break;
-			default:
-				_x_offset = 0;
-				break;
-			}
-			_y_offset = h;// - _size + 1;
-		}
-		else
-		{
+		case GFXControl_Align_Center:
+			_x_offset = 3;
+			break;
+		case GFXControl_Align_Right:
+			_x_offset = 6;
+			break;
+		default:
 			_x_offset = 0;
-			_y_offset = 0;
+			break;
 		}
-		_init = true;
+		_y_offset = h;
 	}
+	else
+	{
+		_x_offset = 0;
+		_y_offset = 0;
+	}	
 	
 	switch (_align)
 	{
@@ -197,11 +193,8 @@ void GFXLabel::print(const String& val, bool clear)
 	
 	_gfx->setCursor(_x - align_offset, _y + _y_offset);
 
-	//if (clear)
-	{
-		_gfx->fillRect(_mx, _my, _mw, _mh, _background);
-	}
-
+	_gfx->fillRect(_mx, _my, _mw, _mh, _background);
+	
 	_gfx->print(s);
 	
 	_mx = x + _x - align_offset;
@@ -309,7 +302,7 @@ void GFXBoundHBar::redraw()
 			_gfx->drawRect(_x + i, _y + i, _width - (2 * i), _height - (2 * i), _foreground);
 		}
 		
-		_lastPos = 0;
+		_lastPos = _align == GFXControl_Align_Right ? _barWidth : 0;
 	}
 	
 	if (_align == GFXControl_Align_Right)
